@@ -28,13 +28,12 @@ jobs:
          net localgroup "Remote Desktop Users" atmin /add
       # Runs a single command using the runners shell
       - name: Fetch pinggy
-        run: powershell -Command "Invoke-WebRequest -Uri 'https://release-assets.githubusercontent.com/github-production-release-asset/1041863297/f0630a6a-b614-421b-97f2-7a87aa153f9a?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-04-26T03%3A43%3A18Z&rscd=attachment%3B+filename%3Dpinggy-win-x64.exe&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-04-26T02%3A43%3A12Z&ske=2026-04-26T03%3A43%3A18Z&sks=b&skv=2018-11-09&sig=OQv8%2BWFHmX5Yi8aWobg98t%2BQb%2Bivx2thXiKdNaYxyV8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3NzE3Mzc1NCwibmJmIjoxNzc3MTcxOTU0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.xzqtmAJw76OSol_nW5WABred7UpogNH-6jQYboSCLGk&response-content-disposition=attachment%3B%20filename%3Dpinggy-win-x64.exe&response-content-type=application%2Foctet-stream' -OutFile 'D:\pinggy.exe'"
-      # Runs a set of commands using the runners shell
+        run: powershell -Command "Invoke-WebRequest -Uri 'https://github.com/Pinggy-io/cli-js/releases/download/v0.4.6/pinggy-win-x64.exe' -OutFile 'D:\pinggy.exe
       - name: Enable RDP Server
         run: |
           reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
           netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
       # Run another command
       - name: Start pinggy
-        run: D:\pinggy.exe  -p 443 -R0:127.0.0.1:3389 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 3tHLCenOPn3+tcp@free.pinggy.io
+        run: D:\pinggy.exe  -p 443 -R0:127.0.0.1:3389 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 a1L5zumteww+tcp@free.pinggy.io
         
